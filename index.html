@@ -115,21 +115,21 @@
 </blockquote>
 <p>让我们聊一聊<code>代码块</code></p>
 <hr>
-<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressLint</span>(<span class="string">"HandlerLeak"</span>)</span><br><span class="line">    Handler hd = <span class="keyword">new</span> Handler() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            String distance = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (msg.what == <span class="number">1</span>) &#123;</span><br><span class="line">                String result = (String) msg.obj;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    JSONObject jsonObject = <span class="keyword">new</span> JSONObject(result);</span><br><span class="line">                    String rows_detail = jsonObject.getString(<span class="string">"ROWS_DETAIL"</span>);</span><br><span class="line">                    System.out.println(rows_detail);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    JSONArray jsonArray = <span class="keyword">new</span> JSONArray(rows_detail);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                        JSONObject object = jsonArray.getJSONObject(i);</span><br><span class="line">                        distance = object.getString(<span class="string">"Distance"</span>);</span><br><span class="line">                        System.out.println(distance);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SuppressLint</span>(<span class="string">"HandlerLeak"</span>)</span><br><span class="line">    Handler hd = <span class="keyword">new</span> Handler() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">            String distance = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (msg.what == <span class="number">1</span>) &#123;</span><br><span class="line">                String result = (String) msg.obj;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    JSONObject jsonObject = <span class="keyword">new</span> JSONObject(result);</span><br><span class="line">                    String rows_detail = jsonObject.getString(<span class="string">"ROWS_DETAIL"</span>);</span><br><span class="line">                    System.out.println(rows_detail);</span><br><span class="line">                    JSONArray jsonArray = <span class="keyword">new</span> JSONArray(rows_detail);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; jsonArray.length(); i++) &#123;</span><br><span class="line">                        JSONObject object = jsonArray.getJSONObject(i);</span><br><span class="line">                        distance = object.getString(<span class="string">"Distance"</span>);</span><br><span class="line">                        System.out.println(distance);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="插入图片和视频"><a href="#插入图片和视频" class="headerlink" title="插入图片和视频"></a>插入图片和视频</h4><p><img src="https://i.loli.net/2019/01/27/5c4d1b320c0ad.jpg" alt="图片" title="水果"></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">时间</th>
+<th style="text-align:center">时间</th>
 <th style="text-align:center">姓名</th>
-<th style="text-align:right">年龄</th>
+<th style="text-align:center">年龄</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">2019年</td>
+<td style="text-align:center">2019年</td>
 <td style="text-align:center">阿里巴巴</td>
-<td style="text-align:right">20</td>
+<td style="text-align:center">20</td>
 </tr>
 </tbody>
 </table>
@@ -137,6 +137,7 @@
 <li>一天的任务<ul>
 <li style="list-style: none"><input type="checkbox" checked> 吃饭</li>
 <li style="list-style: none"><input type="checkbox"> 睡觉</li>
+<li style="list-style: none"><input type="checkbox"> 想她</li>
 <li style="list-style: none"><input type="checkbox"> 打豆豆</li>
 </ul>
 </li>
@@ -145,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/27/小玉玉/" data-id="cjrepjjac000008fimjv255x7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/27/小玉玉/" data-id="cjretncnp00007sfiv3gsm7vb" class="article-share-link">Share</a>
       
     </footer>
 
@@ -171,8 +172,8 @@
   <div class="outer">
     <ul class="list-inline">
       <li>&copy; 2019 唐老鸭和小玉玉</li>
-      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
-      <li>Theme  <a href="https://zhwangart.github.io">zhwangart</a></li>
+      <li>Powered by <a href="https://github.com/loveliyu/loveliyu.github.io" target="_blank">唐老鸭</a></li>
+      <li>Theme  <a href="https://github.com">小玉玉</a></li>
       <!--
       <li><a href="/">唐老鸭和小玉玉</a></li>
       -->
